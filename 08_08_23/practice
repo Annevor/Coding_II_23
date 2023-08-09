@@ -1,0 +1,29 @@
+SNAKE OBJECTS:
+    1. Package: What is the client ordering?
+        -Properties(Fields)
+            -> Size
+            -> Weight
+            -> Amount
+        -Behaviors(Methods)
+            -> Send Size   \
+            -> Send Weight  |--> these are getting sent to the system that prepares the boxes for the order.
+            -> Send Amount /
+    2. Location: Where is the Snake Box Factory to send the package?
+        -Properties
+            -> Time
+            -> Traffic
+            -> Address
+        -Behaviors
+            -> Send Time    \
+            -> Send Traffic  |--> these are getting sent to the drivers or system that organizes packages.
+            -> Send Address /
+    3. Transport: How should the package sorter get this package to the right truck?
+        -Properties
+            -> Area Code of facility
+            -> Time of entry
+            -> Location of entry
+        -Behaviors
+            -> Get Address
+            -> Get Traffic
+            -> Get Time
+
