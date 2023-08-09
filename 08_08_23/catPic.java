@@ -1,3 +1,5 @@
+/* honestly, is this even a cat atp? */
+
 public class catPic {
     public static void main(String[] args){
         System.out.println(" |>------<| ");
