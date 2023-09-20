@@ -9,7 +9,8 @@ public class FibonacciRevamp{
             }
             lead = lead + trail;
             trail = lead - trail;
+            System.out.println(trail);
         }
-        System.out.println(endSum);
+        System.out.println("sum of even terms is: "+endSum);
     }
 }
