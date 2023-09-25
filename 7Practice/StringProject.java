@@ -57,7 +57,7 @@ public class StringProject {
         String str = myString;
         int temp = 0;
         for(int i = 0; i < myString.length(); i++){
-            if(Character.isWhitespace(myString.charAt(i)) || myString.charAt(i) == '.' && i == myString.length() - 1){
+            if(Character.isWhitespace(myString.charAt(i)) || i == myString.length() - 1){ // this checks if there is a space, thereby indicating a new word, or if the end of the sentence has been reached.
                 temp++;
             }
         }
@@ -68,7 +68,7 @@ public class StringProject {
         String str = myString;
         int temp = 0;
         for(int i = 0; i < myString.length(); i++){
-            if(Character.isWhitespace(myString.charAt(i)) == false){
+            if(Character.isLetter(myString.charAt(i))){
                 temp++;
             }
         }
@@ -100,31 +100,10 @@ public class StringProject {
     }
     public String vowelCount(){
         char check;
-        boolean isVowel = false;
         int vowels = 0;
         for(int i = 0; i < myString.length(); i++){
             check = myString.charAt(i);
-            switch(check){
-                case 'a':
-                    isVowel = true;
-                    break;
-                case 'e':
-                    isVowel = true;
-                    break;
-                case 'i':
-                    isVowel = true;
-                    break;
-                case 'o':
-                    isVowel = true;
-                    break;
-                case 'u':
-                    isVowel = true;
-                    break;
-                default:
-                    isVowel = false;
-                    break;
-            }
-            if(isVowel){
+            if(check == 'a' || check == 'e' || check == 'i' || check == 'o' || check == 'u' || check == 'A' || check == 'E' || check == 'I' || check == 'O' || check == 'U'){
                 vowels++;
             }
         }
@@ -141,13 +120,14 @@ public class StringProject {
     }
     public boolean isPalindrome(){
         String check = myString;
-        boolean well = false;
+        boolean well = false;   // I choose 'well' for the variable name because it's common to say "well?" after asking a yes/no question and not receiving a response for a small amount of time.
         String fitted = "";
-        for(int i = 0; i < check.length(); i++){
-            if(Character.isLetter(check.charAt(i))){
+        for(int i = 0; i < check.length(); i++){                         // this for loop just cleans up the string by removing punctuation and whitespace and normalizing character case. this makes checking for a palindrome much easier.
+            if(Character.isLetter(check.charAt(i))){                     // this doesn't seem like it needs to be done because you might think you can just check if the sentence equals itself reversed, but that's not actually the used definition of a palindrome.
                 fitted += Character.toUpperCase(myString.charAt(i));
             }
         }
+        System.out.println("Adjusted string used for palindrome checking: " +fitted);
         for(int i = 0; i < fitted.length(); i++){
             if(fitted.charAt(i) == fitted.charAt((fitted.length() - i) - 1)){
                 well = true;

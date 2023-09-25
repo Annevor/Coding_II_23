@@ -1,6 +1,7 @@
+import java.util.Scanner;
 public class StringTester {
     public static void main(String[] args) {
-        StringProject stats = new StringProject("This land is your land.");
+        StringProject stats = new StringProject("Was it a cat I saw?");
         System.out.println("Current string: " + stats);
         stats.reverseCase();
         System.out.println("Number of times 'a' appears: " + stats.characterCount('a'));
@@ -13,8 +14,11 @@ public class StringTester {
         System.out.println("Number of times that the substring 's' occurs in the String: " +stats.substrCount('s'));
         System.out.println("is Palindrome: " + stats.isPalindrome());
         System.out.println("");
-        StringProject stats2 = new StringProject("Yo! Banana boy!");
-        System.out.println("New string: " + stats2);
-        System.out.println("Your new string: " + stats + "\nIs it a Palindrome?: " +stats2.isPalindrome());
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        StringProject stats2 = new StringProject(sc.nextLine());
+        stats2.reverseString();
+        System.out.println("Is \"" + stats2 + "\" a Palindrome?: " +stats2.isPalindrome());
+        sc.close();
     }
 }
