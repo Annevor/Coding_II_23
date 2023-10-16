@@ -7,6 +7,7 @@ public class Teams {
     private int ties = 0;
     private int goals = 0;
     private ArrayList<Integer> totalGoals = new ArrayList<>();
+    private ArrayList<Integer> allowedList = new ArrayList<>();
     private static int goalsAllowed;
     private int pointsAllowed = 0;
     
@@ -19,7 +20,7 @@ public class Teams {
     public static void displayStats(Teams team){
         System.out.println(team.name);
         System.out.println("Wins: " +team.wins +", Losses: " +team.losses +", Ties: " +team.ties);
-        System.out.println("Points scored: " +team.getTotalGoals() +", Points allowed: " +team.pointsAllowed +"\n\n ---------- \n");
+        System.out.println("Points scored: " +team.getTotalGoals() +", Points allowed: " +team.getPointsAllowed() +"\n\n ---------- \n");
     }
 
     public ArrayList<Teams> getTeamList(){
@@ -54,7 +55,11 @@ public class Teams {
 
 
     public int getPointsAllowed() {
-        return pointsAllowed;
+        int temp = 0;
+        for(int i = 0; i < allowedList.size(); i++){
+            temp += allowedList.get(i);
+        }
+        return temp;
     }
 
     public void setWins(int wins) {
@@ -77,10 +82,10 @@ public class Teams {
         Teams.goalsAllowed = goalsAllowed;
     }
 
-    public void setPointsAllowed(int pointsAllowed) {
-        this.pointsAllowed = pointsAllowed;
-    }
     public void addTotalGoals(int goals){
         totalGoals.add(goals);
+    }
+    public void addPointsAllowed(int points){
+        allowedList.add(points);
     }
 }

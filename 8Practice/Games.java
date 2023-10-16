@@ -10,15 +10,16 @@ public class Games {
     }
 
     public void playGame(Teams team1, Teams team2, double temperature){
+        gameID++;
+        System.out.println("******** GAME " +gameID +" ******** \nTemperature: "+temperature);
         if(temperature > 32){
-            gameID++;
             Teams.setGoalsAllowed((int)(temperature * 0.1));
             team1.setGoals(randInt.nextInt(Teams.getGoalsAllowed()));
             team1.addTotalGoals(team1.getGoals());
             team2.setGoals(randInt.nextInt(Teams.getGoalsAllowed()));
             team2.addTotalGoals(team2.getGoals());
-            team2.setPointsAllowed(team1.getGoals());
-            team2.setPointsAllowed(team2.getGoals());
+            team2.addPointsAllowed(team1.getGoals());
+            team1.addPointsAllowed(team2.getGoals());
             if(team1.getGoals() > team2.getGoals()){
                 team1.setWins(team1.getWins() + 1);
                 team2.setLosses(team2.getLosses() + 1);
@@ -33,16 +34,14 @@ public class Games {
             }
             displayStats(team1, team2);
         } else {
-            System.out.println("Game: "+gameID);
             System.out.println("Week was too cold to play. \n" );
         }
     }
 
     public void displayStats(Teams team1, Teams team2){
-        System.out.println("Game: " +Games.getGameID());
         System.out.println("Away Team: " +team2.getName() +", " +team2.getGoals());
         System.out.println("Home Team: " +team1.getName() +", " +team1.getGoals());
-        System.out.println("");
+        System.out.println("\n");
     }
 
 

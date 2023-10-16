@@ -40,14 +40,12 @@ public class Scheduler{
                 while(rand1 == rand2){
                     rand2 = randInt.nextInt(Teams.teamList.size());
                 }
-                System.out.println("Temperature: "+Games.getTemperatures(i));
                 game.playGame(Teams.teamList.get(rand1), Teams.teamList.get(rand2), Games.getTemperatures(i));
             }
-        System.out.println("\n ******* STATS ******* \n");
+        System.out.println("\n =>=>=>= STATS =<=<=<= \n");
         for(int i = 0; i < Teams.teamList.size(); i++){
             Teams.displayStats(Teams.teamList.get(i));
         }
-        System.out.println("Hottest temp: "+Games.hottestTemp());
-        System.out.println("Average temp: "+Games.avgTemp());
+        System.out.println("Hottest temp: "+Games.hottestTemp() +"\nAverage temp: "+Games.avgTemp());
     }
 }
